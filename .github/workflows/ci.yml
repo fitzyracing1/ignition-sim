@@ -32,9 +32,10 @@ jobs:
         run: npm run build
 
   fakegreen:
-    # Scan PR diffs for skipped tests, weakened asserts, deleted tests, || true, etc.
-    # On push to main there is no PR base; still run against HEAD~1 when history exists.
+    # Diff scanner from https://github.com/fitzyracing1/fakegreen
+    # Primary use: PR base…HEAD. On push to main, only run when HEAD~1 exists.
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' || github.event.before != '0000000000000000000000000000000000000000'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -48,6 +49,3 @@ jobs:
         uses: fitzyracing1/fakegreen@v0.1.1
         with:
           fail-on: high
-        # On the initial empty-history edge case the action may fall back to HEAD~1;
-        # continue-on-error keeps first-commit pushes from being blocked by that edge.
-        continue-on-error: ${{ github.event_name == 'push' && github.event.before == '0000000000000000000000000000000000000000' }}
