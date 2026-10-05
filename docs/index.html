@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>fakegreen01 · Ignition simulator</title>
+  <meta name="description" content="fakegreen01 — pure software ignition-timing simulator for learning and demos. Not for controlling real engines or vehicles." />
+  <meta name="theme-color" content="#0b0f0d" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content="fakegreen01 · Ignition simulator" />
+  <meta property="og:description" content="Pure software ignition-timing simulator for learning and demos. Educational only — not for real engines." />
+  <meta property="og:url" content="https://fitzyracing1.github.io/ignition-sim/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Ignition simulator",
+    "alternateName": "fakegreen01",
+    "url": "https://fitzyracing1.github.io/ignition-sim/",
+    "description": "Pure software ignition-timing simulator for learning and demos. Not for controlling real engines, vehicles, or ECUs.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any (Node.js 22+)",
+    "softwareVersion": "1.0.0",
+    "license": "https://opensource.org/licenses/MIT",
+    "author": {
+      "@type": "Person",
+      "name": "Joshua Almeida",
+      "url": "https://github.com/fitzyracing1"
+    },
+    "sameAs": [
+      "https://github.com/fitzyracing1/ignition-sim"
+    ]
+  }
+  </script>
+  <style>
+    :root{
+      --bg:#0b0f0d;--panel:#121815;--panel2:#18201c;--line:#24302a;
+      --text:#e6ede9;--muted:#93a39a;--green:#3ddc84;--red:#ff5c5c;--amber:#f5b942;
+      --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+      --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.55}
+    a{color:var(--green);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;flex-wrap:wrap;gap:12px}
+    .logo{font-family:var(--mono);font-weight:700;font-size:18px;color:var(--text)}
+    .logo b{color:var(--green)}
+    a.logo:hover{text-decoration:none}
+    nav .links a{color:var(--muted);margin-left:18px;font-size:14px} nav .links a:hover{color:var(--text)}
+    .hero{padding:48px 0 28px;text-align:center}
+    .pill{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-bottom:18px}
+    .pill b{color:var(--green)}
+    h1{font-size:clamp(32px,5vw,48px);line-height:1.1;margin:0 0 16px;letter-spacing:-.02em}
+    h1 em{font-style:normal;color:var(--green)}
+    .sub{color:var(--muted);font-size:18px;max-width:720px;margin:0 auto 28px}
+    .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn{display:inline-block;border-radius:10px;padding:12px 20px;font-weight:600;font-size:15px;border:1px solid var(--line);color:var(--text);background:var(--panel2)}
+    .btn.primary{background:var(--green);color:#06210f;border-color:var(--green)}
+    .btn:hover{text-decoration:none;filter:brightness(1.08)}
+    .facts{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;color:var(--muted);font-size:14px;margin:28px 0 0}
+    .facts b{color:var(--text);font-weight:600}
+    .warn{
+      margin:36px auto 0;max-width:860px;text-align:left;
+      background:rgba(255,92,92,.08);border:1px solid rgba(255,92,92,.35);
+      border-radius:12px;padding:16px 18px
+    }
+    .warn strong{color:var(--red);display:block;margin-bottom:6px;font-size:14px;letter-spacing:.02em}
+    .warn p{margin:0;color:#cfd8d3;font-size:14px}
+    section{padding:56px 0;border-top:1px solid var(--line)}
+    h2{font-size:28px;margin:0 0 8px;letter-spacing:-.01em}
+    .lead{color:var(--muted);margin:0 0 28px;max-width:720px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}
+    .card h3{margin:0 0 6px;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    table{width:100%;border-collapse:collapse;font-size:14px;margin:0 0 20px}
+    th,td{text-align:left;padding:10px 12px;border:1px solid var(--line)}
+    th{background:var(--panel2);color:var(--text);font-weight:600}
+    td{background:var(--panel);color:var(--muted)}
+    td code, th code, p code, li code{
+      font-family:var(--mono);font-size:.92em;background:var(--panel2);
+      border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--text)
+    }
+    pre{
+      font-family:var(--mono);font-size:13px;background:var(--panel);
+      border:1px solid var(--line);border-radius:12px;padding:16px;overflow:auto;margin:0 0 16px;color:#cfd8d3
+    }
+    .ok{color:var(--green)}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    @media(max-width:800px){.two{grid-template-columns:1fr}}
+    footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="./"><b>fake</b>green<span style="color:var(--muted)">01</span></a>
+      <div class="links">
+        <a href="#what">What it does</a>
+        <a href="#api">API</a>
+        <a href="#run">Run tests</a>
+        <a href="#naming">Naming</a>
+        <a href="https://github.com/fitzyracing1/ignition-sim">GitHub</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="pill">product code <b>fakegreen01</b> · umbrella <b>fakegreen</b></div>
+      <h1>Ignition <em>simulator</em></h1>
+      <p class="sub">
+        Pure software model of spark advance and coil dwell from RPM and load.
+        Built for learning and demos — deterministic TypeScript, zero hardware I/O.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/fitzyracing1/ignition-sim">View on GitHub</a>
+        <a class="btn" href="#api">API overview</a>
+      </div>
+      <div class="facts">
+        <span><b>Node.js 22+</b> · TypeScript</span>
+        <span><b>Vitest</b> unit tests</span>
+        <span><b>MIT</b> licensed</span>
+        <span><b>No</b> vehicle control</span>
+      </div>
+      <aside class="warn" role="note">
+        <strong>SAFETY DISCLAIMER — SIMULATOR ONLY</strong>
+        <p>
+          This project is a <b>software model only</b>. It does <b>not</b> control engines,
+          vehicles, ECUs, ignition coils, spark plugs, or any hardware.
+          Do not wire it to a real ignition system or use its outputs as calibration
+          for a street or race vehicle. Misusing ignition timing on a real engine can
+          destroy the engine and create fire / injury hazards.
+        </p>
+      </aside>
+    </header>
+
+    <section id="what">
+      <h2>What it models</h2>
+      <p class="lead">
+        Given an engine operating point (<code>rpm</code>, normalized <code>load</code>),
+        it returns demo dwell time, spark advance (degrees BTDC), and a fixed spark duration.
+        Battery voltage is assumed constant. There is no knock sensor, no IAT/CLT
+        compensation, and no proprietary OEM map import.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>Inputs</h3>
+          <p><code>rpm</code> — engine speed (rev/min).<br />
+             <code>load</code> — normalized load in [0, 1].</p>
+        </div>
+        <div class="card">
+          <h3>Outputs</h3>
+          <p><code>dwellMs</code> — coil charge time.<br />
+             <code>advanceDeg</code> — spark advance BTDC.<br />
+             <code>sparkDurationMs</code> — fixed demo spark event.</p>
+        </div>
+        <div class="card">
+          <h3>Formulas</h3>
+          <p>Piecewise-linear RPM advance table, load correction that retards under heavy load, and RPM-scaled dwell clamps. Educational approximations only.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="api">
+      <h2>API (brief)</h2>
+      <p class="lead">Install from the repo, then call <code>computeIgnition</code>. Optional second argument overrides demo defaults (still not an OEM tune).</p>
+      <pre><span class="ok">import</span> { computeIgnition, DEFAULT_CONFIG } <span class="ok">from</span> "fakegreen01";
+
+<span class="ok">const</span> { dwellMs, advanceDeg, sparkDurationMs } = computeIgnition({
+  rpm: 2500,
+  load: 0.4,
+});
+
+<span class="ok">const</span> custom = computeIgnition(
+  { rpm: 4000, load: 0.7 },
+  { ...DEFAULT_CONFIG, baseAdvanceDeg: 12 },
+);</pre>
+      <div class="two">
+        <div>
+          <table>
+            <thead><tr><th>Input</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td><code>rpm</code></td><td>Engine speed (rev/min)</td></tr>
+              <tr><td><code>load</code></td><td>Normalized load [0, 1]</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <table>
+            <thead><tr><th>Output</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td><code>dwellMs</code></td><td>Coil charge time (ms)</td></tr>
+              <tr><td><code>advanceDeg</code></td><td>Spark advance ° BTDC</td></tr>
+              <tr><td><code>sparkDurationMs</code></td><td>Fixed demo spark (ms)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="lead" style="margin-bottom:0">Also exported: <code>computeAdvanceDeg</code>, <code>computeDwellMs</code>, <code>assertValidInput</code>, <code>lerpTable</code>, <code>clamp</code>, and types <code>IgnitionInput</code> / <code>IgnitionResult</code> / <code>IgnitionConfig</code>.</p>
+    </section>
+
+    <section id="run">
+      <h2>How to run tests</h2>
+      <p class="lead">Clone the repo, install with Node.js 22+, then lint / test / build.</p>
+      <pre>git clone https://github.com/fitzyracing1/ignition-sim.git
+cd ignition-sim
+npm install
+npm test          <span class="ok"># Vitest</span>
+npm run lint      <span class="ok"># tsc --noEmit</span>
+npm run build     <span class="ok"># → dist/</span>
+npm run fakegreen <span class="ok"># optional: scan for fake-green patterns</span></pre>
+      <p class="lead" style="margin-bottom:0">
+        CI on <code>main</code> and pull requests runs install → lint → test → build, plus
+        <a href="https://github.com/fitzyracing1/fakegreen">fakegreen</a> on PRs.
+      </p>
+    </section>
+
+    <section id="naming">
+      <h2>fakegreen naming</h2>
+      <p class="lead">
+        Projects under the fakegreen umbrella use a product code:
+        numeric (<code>fakegreen01</code>, <code>fakegreen02</code>, …) or named
+        (<code>fakegreen-ignition</code> / <code>fakegreenIgnition</code>).
+        This simulator is registered as <b>fakegreen01</b>.
+        See <a href="https://github.com/fitzyracing1/ignition-sim/blob/main/NAMING.md">NAMING.md</a>
+        and the
+        <a href="https://github.com/fitzyracing1/ignition-sim/blob/main/FAKEGREEN-REGISTRY.md">registry</a>.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>Numeric</h3>
+          <p><code>fakegreen01</code>, <code>fakegreen02</code> — zero-padded, lowercase. Preferred for registry IDs.</p>
+        </div>
+        <div class="card">
+          <h3>Named (kebab)</h3>
+          <p><code>fakegreen-ignition</code> — repos, URLs, package scopes when a word is clearer than a number.</p>
+        </div>
+        <div class="card">
+          <h3>Named (camel)</h3>
+          <p><code>fakegreenIgnition</code> — optional JS/TS identifier form of the same name.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>fakegreen01 · Ignition simulator · MIT © 2026 Joshua Almeida</div>
+      <div>
+        <a href="https://github.com/fitzyracing1/ignition-sim">Repo</a> ·
+        <a href="https://fitzyracing1.github.io/fakegreen/">fakegreen</a> ·
+        <a href="https://github.com/fitzyracing1/ignition-sim/blob/main/FAKEGREEN-REGISTRY.md">Registry</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

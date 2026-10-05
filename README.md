@@ -1,6 +1,11 @@
-# ignition-sim
+# Ignition simulator (`fakegreen01`)
 
 **Pure software ignition-timing simulator for learning and demos.**
+
+Product code: **`fakegreen01`** (first entry under the [fakegreen](https://github.com/fitzyracing1/fakegreen) umbrella).
+Optional aliases: `fakegreen-ignition` / `fakegreenIgnition`. See [NAMING.md](./NAMING.md) and the [registry](./FAKEGREEN-REGISTRY.md).
+
+**Site:** [fitzyracing1.github.io/ignition-sim](https://fitzyracing1.github.io/ignition-sim/)
 
 > **SAFETY DISCLAIMER — READ THIS FIRST**
 >
@@ -45,12 +50,12 @@ npm test
 npm run build
 ```
 
-Node.js 18+ required.
+Node.js 22+ required. npm package name: **`fakegreen01`**.
 
 ## Usage
 
 ```ts
-import { computeIgnition } from "ignition-sim";
+import { computeIgnition } from "fakegreen01";
 
 const { dwellMs, advanceDeg, sparkDurationMs } = computeIgnition({
   rpm: 2500,
@@ -64,7 +69,7 @@ Optional: pass a custom `IgnitionConfig` as the second argument to override
 the demo defaults (still educational — not an OEM tune).
 
 ```ts
-import { computeIgnition, DEFAULT_CONFIG } from "ignition-sim";
+import { computeIgnition, DEFAULT_CONFIG } from "fakegreen01";
 
 const result = computeIgnition(
   { rpm: 4000, load: 0.7 },
@@ -176,6 +181,10 @@ src/
 test/
   compute.test.ts
   interpolate.test.ts
+docs/             # GitHub Pages site
+NAMING.md         # fakegreen product-code convention
+FAKEGREEN-REGISTRY.md
+registry.json
 .github/workflows/ci.yml
 ```
 

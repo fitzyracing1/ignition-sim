@@ -1,5 +1,5 @@
 /**
- * ignition-sim — pure software ignition-timing simulator.
+ * fakegreen01 (Ignition simulator) — pure software ignition-timing simulator.
  *
  * SAFETY: Educational / demo only. Do NOT use to control real engines,
  * vehicles, ECUs, ignition coils, or any hardware.

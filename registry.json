@@ -1,0 +1,15 @@
+{
+  "umbrella": "fakegreen",
+  "umbrellaRepo": "https://github.com/fitzyracing1/fakegreen",
+  "convention": "See NAMING.md — numeric fakegreen01… or named fakegreen-kebab / fakegreenCamel",
+  "products": [
+    {
+      "id": "fakegreen01",
+      "name": "Ignition simulator",
+      "repo": "https://github.com/fitzyracing1/ignition-sim",
+      "site": "https://fitzyracing1.github.io/ignition-sim/",
+      "description": "Pure software ignition-timing simulator for learning/demo. Not for controlling real engines or vehicles.",
+      "aliases": ["fakegreen-ignition", "fakegreenIgnition"]
+    }
+  ]
+}
