@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint (typecheck)
+        run: npm run lint
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+  fakegreen:
+    # Scan PR diffs for skipped tests, weakened asserts, deleted tests, || true, etc.
+    # On push to main there is no PR base; still run against HEAD~1 when history exists.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run fakegreen
+        uses: fitzyracing1/fakegreen@v0.1.1
+        with:
+          fail-on: high
+        # On the initial empty-history edge case the action may fall back to HEAD~1;
+        # continue-on-error keeps first-commit pushes from being blocked by that edge.
+        continue-on-error: ${{ github.event_name == 'push' && github.event.before == '0000000000000000000000000000000000000000' }}
