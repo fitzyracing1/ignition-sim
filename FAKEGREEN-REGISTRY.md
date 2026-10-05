@@ -3,14 +3,17 @@
 Canonical list of projects under the fakegreen umbrella.
 Machine-readable twin: [`registry.json`](./registry.json).
 Naming rules: [`NAMING.md`](./NAMING.md).
+Generate the next unique codename: `npm run fakegreen:name`.
 
-| id | name | repo | description |
-|----|------|------|-------------|
-| `fakegreen01` | Ignition simulator | https://github.com/fitzyracing1/ignition-sim | Pure software ignition-timing simulator for learning/demo. Not for controlling real engines or vehicles. |
+| id | codename | full | name | repo | description |
+|----|----------|------|------|------|-------------|
+| `fakegreen01` | `apexchain` | `fakegreen-apexchain` | Ignition simulator | https://github.com/fitzyracing1/ignition-sim | Pure software ignition-timing simulator for learning/demo. Not for controlling real engines or vehicles. |
 
 ### Aliases for fakegreen01
 
-- `fakegreen-ignition` (kebab)
+- `fakegreen-apexchain` (full)
+- `fakegreen01-apexchain` (slug)
+- `fakegreen-ignition` (legacy kebab)
 - `fakegreenIgnition` (camel)
 
 ### Related (umbrella brand, not numbered)

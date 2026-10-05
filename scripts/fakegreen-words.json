@@ -1,0 +1,48 @@
+{
+  "vibe": "tech / engine / green-ish — safe, no OEM trademarks",
+  "left": [
+    "ember", "moss", "verdant", "pine", "jade", "fern", "sage", "mint", "lime",
+    "clover", "spruce", "cedar", "willow", "olive", "aurora", "ion", "volt",
+    "arc", "flux", "glow", "blaze", "spark", "pulse", "torque", "nitro",
+    "quark", "photon", "apex", "zenith", "nova", "comet", "orbit", "vector",
+    "cipher", "hex", "pixel", "node", "stack", "kernel", "cache", "buffer",
+    "throttle", "cam", "lobe", "piston", "crank", "valve", "turbo", "boost",
+    "charge", "dwell", "phase", "sync", "latch", "relay", "rail", "field",
+    "magnet", "stator", "rotor", "dyno", "proto", "alpha", "beta", "gamma",
+    "delta", "sigma", "omega", "quartz", "cobalt", "chrome", "carbon",
+    "silicon", "graphite", "emerald", "forest", "meadow", "grove", "canopy",
+    "ridge", "summit", "lunar", "solar", "tidal", "crystal", "prism", "lens",
+    "servo", "binary", "signal", "logic", "grid", "cloud", "frost", "mist",
+    "vapor", "steam", "plasma", "neutrino", "hadron", "boson", "axial",
+    "radial", "linear", "cyclic", "rapid", "silent", "bright", "vivid",
+    "keen", "swift", "solid", "fluid", "dense", "light", "green", "leafy",
+    "mossy", "earthy", "ionic", "static", "kinetic", "latent", "active"
+  ],
+  "right": [
+    "coil", "spark", "wire", "bus", "fuse", "circuit", "core", "node",
+    "stack", "kernel", "engine", "bench", "lab", "map", "table", "curve",
+    "lobe", "cam", "crank", "valve", "port", "rail", "manifold", "chamber",
+    "piston", "rod", "flywheel", "timing", "advance", "dwell", "pulse",
+    "wave", "arc", "flux", "beam", "ray", "glow", "blaze", "ember", "moss",
+    "fern", "leaf", "vine", "root", "trunk", "canopy", "grove", "meadow",
+    "orbit", "vector", "matrix", "cipher", "byte", "pack", "frame", "packet",
+    "pipeline", "buffer", "cache", "latch", "relay", "stator", "rotor",
+    "magnet", "dyno", "gauge", "meter", "probe", "sensor", "loop", "sync",
+    "phase", "torque", "boost", "charge", "voltage", "current", "amp",
+    "ohm", "joule", "watt", "lumen", "photon", "quark", "ion", "plasma",
+    "aurora", "nova", "comet", "zenith", "apex", "ridge", "peak", "summit",
+    "delta", "sigma", "omega", "grid", "field", "signal", "logic", "servo",
+    "prism", "crystal", "lens", "hub", "link", "bridge", "gate", "switch",
+    "driver", "module", "unit", "cell", "array", "ring", "disk", "shaft",
+    "gear", "sprocket", "belt", "chain", "clutch", "bearing", "seal",
+    "gasket", "plenum", "header", "runner", "igniter", "starter",
+    "regulator", "harness", "loom", "bundle", "strand", "trace", "path"
+  ],
+  "forbidden": [
+    "ford", "mustang", "ecoboost", "coyote", "bosch", "delphi", "denso",
+    "ngk", "champion", "acdelco", "gm", "chevy", "chevrolet", "toyota",
+    "honda", "nissan", "bmw", "audi", "vw", "porsche", "ferrari", "lamborghini",
+    "mclaren", "tesla", "subaru", "mazda", "hyundai", "kia", "jeep", "dodge",
+    "chrysler", "ram", "cummins", "detroit", "caterpillar", "komatsu"
+  ]
+}

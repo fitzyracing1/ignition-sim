@@ -1,9 +1,9 @@
-# Ignition simulator (`fakegreen01`)
+# Ignition simulator (`fakegreen01` · `apexchain`)
 
 **Pure software ignition-timing simulator for learning and demos.**
 
-Product code: **`fakegreen01`** (first entry under the [fakegreen](https://github.com/fitzyracing1/fakegreen) umbrella).
-Optional aliases: `fakegreen-ignition` / `fakegreenIgnition`. See [NAMING.md](./NAMING.md) and the [registry](./FAKEGREEN-REGISTRY.md).
+Product code: **`fakegreen01`** · codename **`apexchain`** · full **`fakegreen-apexchain`** (first entry under the [fakegreen](https://github.com/fitzyracing1/fakegreen) umbrella).
+Slug: `fakegreen01-apexchain`. Extra aliases: `fakegreen-ignition` / `fakegreenIgnition`. See [NAMING.md](./NAMING.md) and the [registry](./FAKEGREEN-REGISTRY.md).
 
 **Site:** [fitzyracing1.github.io/ignition-sim](https://fitzyracing1.github.io/ignition-sim/)
 
@@ -136,6 +136,7 @@ mixture, and coil energy; we do not model that here.
 | `npm test` | Run Vitest unit tests |
 | `npm run build` | Compile TypeScript → `dist/` |
 | `npm run lint` | Typecheck only (`tsc --noEmit`) |
+| `npm run fakegreen:name` | Generate next unique fakegreen id + random codename |
 | `npm run fakegreen` | Scan local git diff for fake-green patterns ([fakegreen](https://github.com/fitzyracing1/fakegreen)) |
 
 ## CI
@@ -182,7 +183,10 @@ test/
   compute.test.ts
   interpolate.test.ts
 docs/             # GitHub Pages site
-NAMING.md         # fakegreen product-code convention
+scripts/
+  fakegreen-name.js   # random codename generator
+  fakegreen-words.json
+NAMING.md         # fakegreen id + codename convention
 FAKEGREEN-REGISTRY.md
 registry.json
 .github/workflows/ci.yml

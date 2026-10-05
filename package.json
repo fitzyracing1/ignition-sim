@@ -1,7 +1,7 @@
 {
   "name": "fakegreen01",
   "version": "1.0.0",
-  "description": "fakegreen01 — Ignition simulator. Pure software ignition-timing simulator for learning/demo. NOT for controlling real engines or vehicles.",
+  "description": "fakegreen01 (apexchain / fakegreen-apexchain) — Ignition simulator. Pure software ignition-timing simulator for learning/demo. NOT for controlling real engines or vehicles.",
   "license": "MIT",
   "author": "Joshua Almeida <fitzyracing1@gmail.com>",
   "repository": {
@@ -15,6 +15,9 @@
   "keywords": [
     "fakegreen",
     "fakegreen01",
+    "apexchain",
+    "fakegreen-apexchain",
+    "fakegreen01-apexchain",
     "ignition",
     "timing",
     "simulator",
@@ -38,7 +41,8 @@
     "LICENSE",
     "NAMING.md",
     "FAKEGREEN-REGISTRY.md",
-    "registry.json"
+    "registry.json",
+    "scripts"
   ],
   "engines": {
     "node": ">=22"
@@ -49,7 +53,8 @@
     "test:watch": "vitest",
     "lint": "tsc -p tsconfig.json --noEmit",
     "fakegreen": "npx --yes fakegreen --fail-on high",
-    "prepublishOnly": "npm run lint && npm test && npm run build"
+    "prepublishOnly": "npm run lint && npm test && npm run build",
+    "fakegreen:name": "node scripts/fakegreen-name.js"
   },
   "devDependencies": {
     "@types/node": "^22.20.5",
