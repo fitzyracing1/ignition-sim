@@ -195,3 +195,8 @@ registry.json
 ## License
 
 MIT © Joshua Almeida
+
+## Documentation
+
+- In-repo docs: [docs/](docs/index.md)
+- Wiki: [https://github.com/fitzyracing1/ignition-sim/wiki](https://github.com/fitzyracing1/ignition-sim/wiki)
